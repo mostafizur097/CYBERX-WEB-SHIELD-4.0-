@@ -158,7 +158,7 @@ If an assessment reveals a potential issue, stop at verification that is safe an
 <div align="center">
 
 **CYBERX SENTINEL X · Defensive by design**
-
+[Bangladesh Understand Hackers]
 <sub>Use responsibly. Test only with permission.</sub>
 
 </div>
