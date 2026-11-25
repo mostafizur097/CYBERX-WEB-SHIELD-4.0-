@@ -1,186 +1,164 @@
 # CYBERX-WEB-SHIELD-4.0-
 Discover. Analyze. Secure.
 
-🛡️ CYBERX SENTINEL
+<div align="center">
 
-Advanced Public Website Intelligence & OSINT Toolkit
+<img src="assets/cyberx-sentinel-banner.svg" alt="CYBERX SENTINEL X — Defensive Web Intelligence" width="100%">
 
-<p align="center">
-  <strong>Discover. Analyze. Secure.</strong><br>
-  <em>Public Website Intelligence • Defensive OSINT • Security Analysis</em>
-</p><p align="center">
-  <img src="https://img.shields.io/badge/Version-4.0-00C2FF?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Python-3.x-FFD43B?style=for-the-badge&logo=python&logoColor=black" />
-  <img src="https://img.shields.io/badge/Platform-Termux%20%7C%20Linux-00C853?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Use-Defensive%20OSINT-8A2BE2?style=for-the-badge" />
-</p>---
+# CYBERX SENTINEL X
 
-⚡ About CYBERX SENTINEL
+### Unified Defensive Website Intelligence & Configuration Assessment
 
-CYBERX SENTINEL একটি Python-based Public Website Intelligence এবং Defensive OSINT Toolkit।
+<p>
+  <img src="https://img.shields.io/badge/version-1.0-7c6cff?style=for-the-badge" alt="Version 1.0">
+  <img src="https://img.shields.io/badge/python-3.9%2B-31c9c0?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.9+">
+  <img src="https://img.shields.io/badge/platform-Termux%20%7C%20Linux-18243a?style=for-the-badge" alt="Termux and Linux">
+  <img src="https://img.shields.io/badge/purpose-Defensive%20Only-e7a83e?style=for-the-badge" alt="Defensive only">
+</p>
 
-এটি একটি নির্দিষ্ট ডোমেইনের প্রকাশ্যে доступযোগ্য তথ্য সংগ্রহ, বিশ্লেষণ এবং রিপোর্ট তৈরিতে সহায়তা করে। বিশেষভাবে Cybersecurity Researcher, Website Administrator, Security Analyst এবং Ethical Hacker-দের জন্য তৈরি।
+**A focused, permission-based toolkit for reviewing public website configuration, exposure signals and security posture.**
 
-✨ Core Features
+[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Reports](#-reports) • [Safety](#-authorized-use--safety)
 
-Feature| Description
-🌐 DNS Intelligence| A, AAAA, MX, NS, TXT, CNAME, SOA
-📋 Domain RDAP| Public registration information
-🔐 SSL/TLS Analysis| Certificate details and validity
-🛡️ Security Headers| HTTP security configuration analysis
-🔎 Subdomain Discovery| Passive Certificate Transparency lookup
-📧 Email Intelligence| Publicly exposed email extraction
-📄 Website Metadata| Title, Meta, Canonical information
-🕷️ Public Web Crawler| Limited public-page inspection
-🤖 Robots.txt| Public crawling policy inspection
-🗺️ Sitemap Analysis| Public sitemap discovery
-📊 JSON Report| Structured intelligence report
-📝 TXT Report| Human-readable scan report
+</div>
 
 ---
 
-🎨 Interface & User Experience
+## ✦ Overview
 
-CYBERX SENTINEL-এর Terminal UI-তে রয়েছে:
+**CYBERX SENTINEL X** combines defensive website intelligence checks in one Python tool. It gathers publicly available configuration signals, performs limited checks against the authorized target, and creates readable reports for follow-up review.
 
-- Modern Cybersecurity ASCII Banner
-- Colorful terminal interface
-- Interactive menu system
-- Clear scan status and output
-- Organized report generation
-- Termux-friendly interface
+> Built for website owners, developers, and authorized security reviewers. It is an assessment helper—not an exploitation framework or a replacement for a professional security audit.
 
----
+## ⚡ Features
 
-📱 Supported Platforms
+| Module | What it checks |
+|---|---|
+| **DNS Intelligence** | A, AAAA, MX, NS, TXT, CNAME and SOA records |
+| **RDAP Lookup** | Public domain registration information |
+| **Web Assessment** | HTTP/HTTPS response and security-header observations |
+| **TLS Inspection** | Certificate details and validity information |
+| **Public Files** | `robots.txt`, `sitemap.xml` and `security.txt` |
+| **Passive Subdomains** | Certificate Transparency discovery through `crt.sh` |
+| **Public Page Review** | Limited robots.txt-aware crawl of public pages |
+| **Email Discovery** | Email addresses visibly published on crawled pages |
+| **Admin Path Review** | Small fixed list of common paths, using ordinary GET requests |
+| **Report Generator** | JSON, TXT and self-contained HTML reports |
 
-- Android — Termux
-- Linux
-- Windows (Python environment)
+### 🛡️ Safety-minded controls
 
----
+- Target must be a public hostname; IP-address targets are not accepted.
+- Redirects are followed manually with scope checks.
+- Public-IP checks, request timeouts and response-size limits are applied.
+- Sensitive response headers are redacted from reports.
+- Crawling observes `robots.txt` and uses a limited page count.
+- No brute-force, login attempts, exploitation, authentication bypass or form submission.
 
-🚀 Installation Guide
+## 📱 Installation
 
-1. Update Termux
+### Termux (Android)
 
+```bash
 pkg update && pkg upgrade -y
-
-2. Install Python
-
 pkg install python -y
 
-3. Install Required Packages
+mkdir -p ~/cyberx-sentinel
+cd ~/cyberx-sentinel
+```
 
-pip install requests beautifulsoup4 dnspython rich
+Copy these project files into the folder:
 
-4. Download the Project
+- `cyberx_sentinel_x.py`
+- `requirements.txt`
 
-GitHub থেকে Repository Clone করুন:
+Install dependencies:
 
-git clone YOUR_GITHUB_REPOSITORY_URL
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
 
-cd YOUR_REPOSITORY_NAME
+### Linux
 
-5. Run the Tool
+```bash
+sudo apt update
+sudo apt install python3 python3-pip -y
 
-python cyberx_web_shield.py
+python3 -m pip install -r requirements.txt
+```
 
----
+## 🚀 Usage
 
-🧭 How to Use
+### Start the interactive menu
 
-1. Tool চালু করুন।
-2. Interactive menu থেকে প্রয়োজনীয় অপশন নির্বাচন করুন।
-3. নিজের অথবা অনুমোদিত ওয়েবসাইটের Domain লিখুন।
-4. Analysis সম্পন্ন হওয়া পর্যন্ত অপেক্ষা করুন।
-5. Generated report পরীক্ষা করুন।
+```bash
+python cyberx_sentinel_x.py
+```
 
-Example Domain:
+### Run a full assessment
 
-example.com
+```bash
+python cyberx_sentinel_x.py example.com --full
+```
 
-শুধুমাত্র নিজের ওয়েবসাইট অথবা লিখিত অনুমতি রয়েছে এমন ডোমেইনে ব্যবহার করুন।
+### Confirm authorization non-interactively
 
----
+```bash
+python cyberx_sentinel_x.py example.com --yes-authorized --full
+```
 
-📂 Report System
+Replace `example.com` with a domain you own or have explicit written permission to assess.
 
-স্ক্যানের ফলাফল JSON এবং TXT ফরম্যাটে সংরক্ষণ করা যায়।
+## 📊 Reports
 
-CYBERX-SENTINEL/
-│
-├── cyberx_web_shield.py
-├── reports/
-│   ├── scan_report.json
-│   └── scan_report.txt
-│
+Generated reports are saved in:
+
+```text
+reports/
+```
+
+Available formats:
+
+- **HTML** — convenient browser-readable report
+- **JSON** — structured results for further processing
+- **TXT** — lightweight plain-text summary
+
+## ⚠️ Authorized Use & Safety
+
+Use this tool **only** on domains you own or are explicitly authorized to assess.
+
+This tool does not exploit vulnerabilities, attempt logins, brute-force credentials, bypass authentication, submit forms, or access private data. A discovered login path, exposed email address, or missing security header is **not proof of a vulnerability**. Verify findings manually and responsibly.
+
+## ℹ️ Known Limitations
+
+- DNS is checked before each HTTP hop, but ordinary Requests networking cannot guarantee IP pinning across DNS changes. This does not fully eliminate DNS rebinding or time-of-check/time-of-use risk.
+- Admin-path review intentionally checks only a small, fixed list of common paths.
+- JavaScript-rendered pages may not expose their login forms in raw HTML.
+- Email and technology detection are heuristic and may produce false positives or false negatives.
+- RDAP and Certificate Transparency results depend on third-party service availability and network access.
+- This is not a full penetration-testing suite and does not replace a professional security audit.
+
+## 🧰 Project Structure
+
+```text
+CYBERX-SENTINEL-X/
+├── assets/
+│   └── cyberx-sentinel-banner.svg
+├── cyberx_sentinel_x.py
+├── requirements.txt
 └── README.md
+```
 
-রিপোর্ট ফাইলের নাম ও সংরক্ষণের অবস্থান কোডের বাস্তব কনফিগারেশনের ওপর নির্ভর করবে।
+## 🤝 Responsible Disclosure
 
----
-
-⚙️ Technology Stack
-
-- Python 3
-- Requests
-- BeautifulSoup4
-- DNSPython
-- Rich Terminal UI
-- RDAP
-- Certificate Transparency
+If an assessment reveals a potential issue, stop at verification that is safe and authorized. Document the evidence, avoid accessing or changing other users' data, and report the finding privately to the system owner.
 
 ---
 
-🔒 Responsible Use Policy
+<div align="center">
 
-CYBERX SENTINEL একটি Defensive OSINT Tool।
+**CYBERX SENTINEL X · Defensive by design**
 
-অনুমোদিত ব্যবহারের উদাহরণ:
+<sub>Use responsibly. Test only with permission.</sub>
 
-- নিজের ওয়েবসাইটের Security Analysis
-- Public DNS Configuration Review
-- SSL/TLS Certificate Inspection
-- Public Email Exposure Assessment
-- Website Metadata Research
-- Security Configuration Auditing
-
-নিষিদ্ধ ব্যবহার:
-
-- অনুমতি ছাড়া অনুপ্রবেশের চেষ্টা
-- ব্যক্তিগত বা Restricted Data সংগ্রহ
-- Credential Theft বা Password Attack
-- Unauthorized Exploitation
-- Website Disruption বা Denial of Service
-
-এই টুল কোনো ওয়েবসাইটের সব তথ্য সংগ্রহ করতে পারে না। এটি কেবল প্রকাশ্যে доступযোগ্য এবং অনুমোদিত তথ্য বিশ্লেষণ করে।
-
----
-
-⚠️ Disclaimer
-
-এই সফটওয়্যারটি শুধুমাত্র Educational, Defensive Security এবং Authorized OSINT Research-এর উদ্দেশ্যে তৈরি।
-
-ব্যবহারকারীকে অবশ্যই স্থানীয় আইন, ওয়েবসাইটের Terms of Service এবং অনুমতির সীমা মেনে চলতে হবে।
-
-ডেভেলপার কোনো অননুমোদিত ব্যবহার বা অপব্যবহারের দায় গ্রহণ করেন না।
-
----
-
-👨‍💻 Developer & Project
-
-Project: CYBERX SENTINEL
-Category: Website Intelligence & OSINT
-Version: 4.0
-Platform: Termux / Linux / Windows
-Language: Python
-
-<p align="center">
-  <strong>CYBERX SENTINEL</strong><br>
-  <em>Discover. Analyze. Secure.</em>
-</p>---
-
-<p align="center">
-  ⭐ If this project helps you, consider giving it a star on GitHub.
-</p>
+</div>
