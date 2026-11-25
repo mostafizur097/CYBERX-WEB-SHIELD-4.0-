@@ -1,4 +1,4 @@
-# CYBERX-WEB-SHIELD-4.0-
+# CYBERX SENTINEL X
 Discover. Analyze. Secure.
 
 <div align="center">
